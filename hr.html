@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Moduł HR</title>
+</head>
+<body>
+<div class="container">
+    <header><h1>Moduł HR</h1></header>
+    <main>
+        <button class="collapsible">Dodaj pracownika</button>
+        <div class="content">
+            <form action="">
+                <label for="imie_pracownika"></label>
+                <input type="text" placeholder="imię" name="imie_pracownika" id="imie_pracownika" required>
+                <label for="nazwisko_pracownika"></label>
+                <input type="text" placeholder="nazwisko" name="nazwisko_pracownika" id="nazwisko_pracownika" required>
+                <label for="poziom_uprawnien"></label>
+                <input type="text" placeholder="poziom uprawnień" name="poziom_uprawnien" id="poziom_uprawnien" required>
+                <label for="data_urodzenia"></label>
+                <input type="date" name="data_urodzenia" id="data_urodzenia" required>
+                <input type="submit" value="Dodaj" class="submit">
+            </form>
+        </div>
+        <button class="collapsible">Usuń pracownika</button>
+        <div class="content">
+          <form action="">
+            <label for="id_pracownika"></label>
+            <input type="text" id="id_pracownika" name="id_pracownika" placeholder="identyfikator pracownika">
+            <input type="submit" value="Usuń" class="submit">
+          </form>
+        </div>
+        <button class="collapsible">Aktualizuj pracownika</button>
+        <div class="content">
+          <form action="">
+            <label for="id_pracownika_update"></label>
+            <input type="text" id="id_pracownika_update" name="id_pracownika_update"  placeholder="identyfikator pracownika" require>
+            <label for="nowe_imie_pracownika"></label>
+            <input type="text" placeholder="nowe imię pracownika" id="nowe_imie_pracownika"   name="nowe_imie_pracownika">
+            <label for="nowe_nazwisko_pracownika"></label>
+            <input type="text" placeholder="nowe nazwisko pracownika" id="nowe_nazwisko_pracownika"   name="nowe_nazwisko_pracownika">
+            <label for="nowe_uprawnienia"></label>
+            <input type="text" id="nowe_uprawnienia" name="nowe_uprawnienia" placeholder="nowy poziom uprawnień pracownika">
+            <input type="submit" value="Aktualizuj" class="submit">
+          </form>
+      </div>
+      <button class="collapsible">Wszyscy pracownicy</button>
+      <div class="content">
+        miejsce na wyświetlenie wszystkich pracowników
+      </div>
+    </main>
+</div>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } 
+        });
+      }
+    </script>
+</body>
+</html>

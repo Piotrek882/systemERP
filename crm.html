@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Moduł CRM</title>
+</head>
+<body>
+    <div class="container">
+        <header><h1>Moduł CRM</h1></header>
+        <main>
+            <button type="button" class="collapsible">Nowy Klient</button>
+            <div class="content" id="opcja1">
+              <form action="">
+                <label for="imie"></label>
+                <input type="text" id="imie" name="imie" placeholder="Imię" required>
+                <label for="email" ></label>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+                <label for="status_sub"></label>
+                <input type="text" id="status_sub" name="status_sub" placeholder="Status subskrypcji" required>
+                <input type="submit" value="Potwierdź" class="submit">
+                </form>
+              </div>
+            <button type="button" class="collapsible">Wszyscy klienci</button>
+            <div class="content" id="opcja2">
+              <section>miejsce na wyświetlenie wszystkich klientów</section>
+            </div>    
+            <button type="button" class="collapsible">Aktualizuj klienta</button>
+            <div class="content" id="opcja3">
+              <form action="">
+                <label for="id_klienta"></label>
+                <input type="text" id="id_klienta" name="id_klienta" placeholder="Identyfikator klienta" required>
+                <section id="klient_istnieje">
+                  <label for="nowe_imie"></label>
+                  <input type="text" id="nowe_imie" name="nowe_imie" placeholder="Nowe imię" required>
+                  <label for="nowy_email" ></label>
+                  <input type="email" id="nowy_email" name="nowy_email" placeholder="Nowy e-mail" required>
+                  <label for="nowy_status_sub"></label>
+                  <input type="text" id="nowy_status_sub" name="nowy_status_sub" placeholder="Nowy status subskrypcji" required>
+                </section>
+                <input type="submit" value="Potwierdź" class="submit">
+                
+              </form>
+            </div>
+            <button type="button" class="collapsible">Usuń klienta</button>
+            <div class="content" id="opcja4">
+              <form action="">
+                <label for="id_klienta_do_usuniecia"></label>
+                <input type="text" id="id_klienta_do_usuniecia" name="id_klienta_do_usuniecia" placeholder="ID klienta do usuniecia" required>
+                <input type="submit" value="Usuń" class="submit">
+              </form>
+            </div>
+            <button type="button" class="collapsible">E-maile wszystkich klientów</button>
+            <div class="content" id="opcja5">
+              <section>
+                miejsce na wyświetlenie wszystkich maili
+              </section>
+            </div>
+            <a href="index.html" id="powrot"><button>Strona główna</button></a>
+        </main>
+    </div>
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } 
+        });
+      }
+      </script>
+</body>
+</html>
